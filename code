@@ -1,0 +1,52 @@
+Private Sub CommandButton1_Click()
+Range("C8:C17").Select
+Selection.ClearContents
+Range("F14:F17").Select
+Selection.ClearContents
+Range("A1").Select
+End Sub
+---------------------------------
+'Add three buttons on the sheet
+'And imaging that you want to delete B4 B5 B6
+'You can discover which button is, by double cliking on the desing mode
+'on your excel
+Private Sub CommandButton1_Click() 'This is the button on the cell C4
+    Range("B4").ClearContents
+    'Here B4 is the range of the cell you want to delete...
+    'This could be acomplish just pressing the button DELETE
+    'Same by the two other buttons... just adding 1 to the number
+    'B4...B5...B6
+    'With this you only can delete de contents of the cell...
+End Sub
+
+Private Sub CommandButton2_Click() 'This is the button on the cell C5
+    Range("B5").ClearContents
+End Sub
+
+Private Sub CommandButton3_Click() 'This is the button on the cell C6
+    Range("B6").ClearContents
+End Sub
+
+========================================
+ Sub sbDelete_Rows_IF_Cell_Contains_String_Text_Value()
+    Dim lRow As Long
+    Dim iCntr As Long
+    lRow = 390
+    For iCntr = lRow To 1 Step -1
+        If Cells(iCntr, 5).Value = "none" Then
+            Rows(iCntr).Delete
+        End If
+    Next
+    End Sub
+ ------------------------------------------
+ 
+ Sub sb_Copy_Save_ActiveSheet_As_Workbook()
+        Set wb = Workbooks.Add
+    ThisWorkbook.Activate
+    ActiveSheet.Copy Before:=wb.Sheets(1)
+    wb.Activate
+    wb.SaveAs "C:\temp\test3.xlsx"End Sub 
+    
+ =========================================
+ 
+ 
